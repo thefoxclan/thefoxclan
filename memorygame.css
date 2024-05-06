@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-image: linear-gradient(blue, green);
+}
+
+#container {
+  border: solid 1px black;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(red, yellow);
+}
+
+#timer {
+  display: inline;
+}
+
+#answer {
+  margin-top: 50px;
+}
+
+#starttimer {
+  padding: 10px;
+}
+
+h1 {
+  text-decoration: underline;
+}
