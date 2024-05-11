@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memory Game</title>
-    <link rel="stylesheet" href="memorygame.css" />
+    <link rel="stylesheet" href="chatgpt memorygame.css" />
   </head>
   <body>
-    <div id="container">
-      <h1>Memory Game</h1>
-      <h2 id="number"></h2>
-      <h3 id="timer">10</h3>
-      <button id="starttimer">Start Timer</button> <br>
-      <input type="text" placeholder="Put answer here" id="answer"/>
-      <button id="submit">Submit</button>
+    <div id="game">
+      <h2>Memory Game</h2>
+      <p>Memorize this: <span id="randomNumber"></span></p>
+      <p>Timer: <span id="timer">10</span> seconds</p>
+      <button id="startTimer" onclick="startTimer()">Start Timer</button>
+      <p>
+        Enter Number:
+        <input type="text" id="numberInput" placeholder="Enter a number" />
+      </p>
+      <button onclick="checkNumber()">Submit</button>
+      <div id="tracker">
+        <p>Games Won: <span id="gamesWon">0</span></p>
+        <p>Games Lost: <span id="gamesLost">0</span></p>
+      </div>
     </div>
-    <script src="memorygame.js"></script>
+    <script src="chapgpt memory game.js"></script>
   </body>
 </html>
