@@ -1,48 +1,46 @@
-document.addEventListener("DOMContentLoaded", function () {
-  let startTimer = document.getElementById("starttimer");
-  let answer = document.getElementById("answer");
-  let submit = document.getElementById("submit");
+let timer = 10;
+let gamesWon = 0;
+let gamesLost = 0;
+let interval;
 
-  let randomNumber;
-  let myInterval;
+function startGame() {
+  resetGame();
+}
 
-
-  function submitted() {
-    console.log("submitted");
-    if (answer.value == randomNumber) {
-      alert("Correct");
-    } else {
-      alert("Try again :(");
+function startTimer() {
+  document.getElementById("randomNumber").style.display = "inline";
+  interval = setInterval(function () {
+    timer--;
+    document.getElementById("timer").innerText = timer;
+    if (timer === 0) {
+      clearInterval(interval);
+      document.getElementById("randomNumber").style.display = "none";
     }
-    document.getElementById("timer").textContent = "10";
-    answer.value = "";
+  }, 1000);
+}
+
+function checkNumber() {
+  let numberInput = parseInt(document.getElementById("numberInput").value);
+  if (numberInput === randomNumber) {
+    alert("Congratulations! You guessed the correct number.");
+    gamesWon++;
+  } else {
+    alert("Sorry, the correct number was " + randomNumber + ". Try again.");
+    gamesLost++;
   }
+  document.getElementById("gamesWon").innerText = gamesWon;
+  document.getElementById("gamesLost").innerText = gamesLost;
+  resetGame();
+}
 
-  startTimer.addEventListener("click", () => {
-    //first of all the random number will appear
-    randomNumber = Math.floor(Math.random() * 10000000000);
-    document.getElementById("number").textContent = randomNumber;
-    //the timer starts counting
-    answer.disabled = true;
+function resetGame() {
+  randomNumber = Math.floor(Math.random() * 10000000000) + 1;
+  timer = 10;
+  document.getElementById("randomNumber").innerText = randomNumber;
+  document.getElementById("timer").innerText = timer;
+  document.getElementById("numberInput").value = "";
+  clearInterval(interval);
+}
 
-    let timer = Number(document.getElementById("timer").textContent);
-
-    clearInterval(myInterval);
-    myInterval = setInterval(() => {
-      if (timer != -1) {
-        document.getElementById("timer").textContent = timer--;
-      } else {
-        document.getElementById("number").textContent = "";
-        answer.disabled = false;
-        clearInterval(myInterval);
-      }
-    }, 1000);
-  });
-  submit.addEventListener("click", submitted);
-  answer.addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      submitted();
-    }
-  });
-});
+startGame();
+document.getElementById("randomNumber").style.display = "none";
