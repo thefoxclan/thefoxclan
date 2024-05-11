@@ -1,35 +1,27 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  background-image: linear-gradient(blue, green);
-}
-
-#container {
-  border: solid 1px black;
-  width: 50%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-image: linear-gradient(red, yellow);
-}
-
-#timer {
-  display: inline;
-}
-
-#answer {
-  margin-top: 50px;
-}
-
-#starttimer {
-  padding: 10px;
-}
-
-h1 {
-  text-decoration: underline;
-}
+ body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #game {
+        margin: 50px auto;
+        width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      #game input[type="text"] {
+        padding: 5px;
+        margin-right: 10px;
+      }
+      #game button {
+        padding: 5px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #tracker {
+        margin-top: 20px;
+      }
